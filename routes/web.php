@@ -17,3 +17,8 @@ Route::delete('/doctors/{id}', [DoctorController::class, 'destroy']);
 
 // Rutas Citas (index)
 Route::get('/appointments', [AppointmentController::class, 'index']);
+
+Route::get('/doctors-view', function () {
+    $doctors = \App\Models\Doctor::all();
+    return view('doctors', compact('doctors'));
+});
